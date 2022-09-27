@@ -1,11 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "aframe";
+// import "aframe-particle-system-component";
+import VRScene from "./components/VR";
+// import "./style/app.scss";
 
-function App() {
+const App = () => {
+  const [vrMode, setVrMode] = useState(true);
+  return <VRScene />;
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,9 +21,11 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={() => setVrMode(true)}>Start Virtual Reality</button>
+        {vrMode && <VRScene />}
       </header>
     </div>
   );
-}
+};
 
 export default App;

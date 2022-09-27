@@ -1,0 +1,10 @@
+.App {
+  margin: 0px;
+  padding: 0px;
+
+  &-header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+  }
+}

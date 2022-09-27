@@ -1,17 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import App from "./App";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import "aframe";
+import "aframe-particle-system-component";
+import { Entity, Scene } from "aframe-react";
+import React from "react";
+import ReactDOM from "react-dom";
+
+class VRScene extends React.Component {
+  render() {
+    return (
+      <Scene>
+        {/* <Entity
+          geometry={{ primitive: "box" }}
+          material={{ color: "red" }}
+          position={{ x: 0, y: 0, z: -5 }}
+        /> */}
+        <Entity particle-system={{ preset: "snow" }} />
+        {/* <Entity light={{ type: "point" }} /> */}
+        <Entity gltf-model={{ src: "../src/components/images/cake.gltf" }} />
+        <Entity text={{ value: "Hello, WebVR!" }} />
+      </Scene>
+    );
+  }
+}
+
+ReactDOM.render(<VRScene />, document.getElementById("root"));
